@@ -1,1 +1,1 @@
-﻿web: gunicorn pizzabot:app
+﻿web: gunicorn telegrambot:app
