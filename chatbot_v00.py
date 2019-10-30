@@ -30,7 +30,9 @@ def webhook():
     bot.remove_webhook()
     bot.set_webhook(url='https://telegram-chatbot-v00.herokuapp.com' + TOKEN)
     return "!", 200
-
+@bot.message_handler(commands=['help']) # help message handler
+def send_welcome(message):
+    bot.reply_to(message, 'ALPHA = FEATURES MAY NOT WORK')
 
 if __name__ == "__main__":
     server.run(host="0.0.0.0", port=int(os.environ.get('PORT', 5000)))
