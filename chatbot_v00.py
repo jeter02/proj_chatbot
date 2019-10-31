@@ -1,117 +1,44 @@
-﻿
-# -*- coding: utf-8 -*-
+﻿import time
+import telebot
 
-from telegram.ext import Updater, MessageHandler, Filters
-from emoji import emojize
-import requests
-from bs4 import BeautifulSoup
-from flask import Flask
-import serial
-import os
+TOKEN = '719614337:AAGVXDHZtOK7YNUsokdtbgjqExNoTEMXxzA'
+bot = telebot.TeleBot(token=TOKEN)
 
-TOKEN ='719614337:AAGVXDHZtOK7YNUsokdtbgjqExNoTEMXxzA'
-
-updater = Updater(TOKEN)
-dispatcher = updater.dispatcher
-updater.start_polling()
-
-url_1 = 'https://www.naver.com'
-url_2 = 'https://www.clien.net/service/board/news'
-url_3 = 'https://www.clien.net/service/board/cm_car'
-
-##bot = telebot.TeleBot(TOKEN)
 server = Flask(__name__)
 
-## set for serial comm.
+def findat(msg):
+    # from a list of texts, it finds the one with the '@' sign
+    for i in msg:
+        if '@' in i:
+            return i
 
-ser = serial.Serial(
-##    port='/dev/cu.usbmodem1411',
-    port='/dev/cu.Bluetooth-Incoming-Port',
-    baudrate=9600,
-)
+@bot.message_handler(commands=['start']) # welcome message handler
+def send_welcome(message):
+    bot.reply_to(message, '(placeholder text)')
 
-## Flask
-app = Flask(__name__)
+@bot.message_handler(commands=['help']) # help message handler
+def send_welcome(message):
+    bot.reply_to(message, 'ALPHA = FEATURES MAY NOT WORK')
 
-@app.route('/')
-def index():
-    return "Hello world!"
-
-class WebCrwl:
-    def __init__(self, URL):
-        self.url = URL
-
-    def naver_rt(self):
-        resp = requests.get(self.url)
-        soup = BeautifulSoup(resp.text, 'html.parser')
-        titles = soup.select('.ah_roll .ah_k')
-        return titles
-
-    def clien_bbs(self):
-        resp = requests.get(self.url)
-        soup = BeautifulSoup(resp.text, 'html.parser')
-        titles = soup.select('.list_subject .subject_fixed')
-        return titles
-
-
-
-## telegram handler ###
-
-def handler(bot, update):
-    text = update.message.text
-    chat_id = update.message.chat_id
-
-    if ('실시간' or 'real') in text:
-        a = WebCrwl(url_1)
-        titles = a.naver_rt()
-        for title in titles:
-            bot.send_message(chat_id=chat_id, text=title.get_text())
-    elif '새소식' in text:
-        a = WebCrwl(url_2)
-        titles = a.clien_bbs()
-        for title in titles:
-            bot.send_message(chat_id=chat_id, text=title.get_text())
-    elif u'굴당' or 'car' in text:
-        a = WebCrwl(url_3)
-        titles = a.clien_bbs()
-        for title in titles:
-            bot.send_message(chat_id=chat_id, text=title.get_text())
-    ### IR control ###
-    elif 'tv on' in text:
-        ir_code = 'tv on'
-        ser.write(ir_code.encode())
-        bot.send_message(chat_id=chat_id, text=ir_code)
-    elif 'up' in text:
-        ir_code = 'channel up'
-        ser.write(ir_code.encode())
-        bot.send_message(chat_id=chat_id, text=ir_code)
-    elif 'down' in text:
-        ir_code = 'channel down'
-        ser.write(ir_code.encode())
-        bot.send_message(chat_id=chat_id, text=ir_code)
-
+@bot.message_handler(func=lambda msg: msg.text is not None and '@' in msg.text)
+# lambda function finds messages with the '@' sign in them
+# in case msg.text doesn't exist, the handler doesn't process it
+def at_converter(message):
+    texts = message.text.split()
+    at_text = findat(texts)
+    if at_text == '@': # in case it's just the '@', skip
+        pass
     else:
-        bot.send_message(chat_id=chat_id, text='다시 입력해 주세요')
-'''
-def ir_handler(bot, update):
+        insta_link = "https://instagram.com/{}".format(at_text[1:])
+        bot.reply_to(message, insta_link)
 
-    text = update.message.text
-    chat_id = update.message.chat_id
-    if 'tv on' or u'티비 켜' in text:
-        ir_code = '0x22221111'
-        ser.write(ir_code.encode())
-        bot.send_message(chat_id=chat_id, text=ir_code)
-'''
-
-
-echo_handler = MessageHandler(Filters.text, handler)
-dispatcher.add_handler(echo_handler)
 
 @server.route("/")
 def webhook():
     bot.remove_webhook()
     bot.set_webhook(url='https://telegram-chatbot-v00.herokuapp.com' + TOKEN)
     return "!", 200
+
 
 if __name__ == "__main__":
     server.run(host="0.0.0.0", port=int(os.environ.get('PORT', 5000)))

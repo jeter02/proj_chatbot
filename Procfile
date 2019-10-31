@@ -1,1 +1,1 @@
-﻿web: gunicorn chatbot_v00.py
+﻿web: python3 chatbot_v00.py
