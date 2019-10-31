@@ -1,7 +1,7 @@
 ﻿import time
 import telebot
 
-TOKEN = '719614337:AAGVXDHZtOK7YNUsokdtbgjqExNoTEMXxzA'
+TOKEN = "719614337:AAGVXDHZtOK7YNUsokdtbgjqExNoTEMXxzA"
 bot = telebot.TeleBot(token=TOKEN)
 
 server = Flask(__name__)
