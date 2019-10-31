@@ -1,29 +1,111 @@
-﻿import os
+﻿
+# -*- coding: utf-8 -*-
 
-from flask import Flask, request
+from telegram.ext import Updater, MessageHandler, Filters
+from emoji import emojize
+import requests
+from bs4 import BeautifulSoup
+from flask import Flask
+import serial
+import os
 
-import telebot
+TOKEN ='719614337:AAGVXDHZtOK7YNUsokdtbgjqExNoTEMXxzA'
 
-TOKEN = '719614337:AAGVXDHZtOK7YNUsokdtbgjqExNoTEMXxzA'
-bot = telebot.TeleBot(TOKEN)
+updater = Updater(TOKEN)
+dispatcher = updater.dispatcher
+updater.start_polling()
+
+url_1 = 'https://www.naver.com'
+url_2 = 'https://www.clien.net/service/board/news'
+url_3 = 'https://www.clien.net/service/board/cm_car'
+
+##bot = telebot.TeleBot(TOKEN)
 server = Flask(__name__)
 
+## set for serial comm.
 
-@bot.message_handler(commands=['start'])
-def start(message):
-    bot.reply_to(message, 'Hello, ' + message.from_user.first_name)
+ser = serial.Serial(
+##    port='/dev/cu.usbmodem1411',
+    port='/dev/cu.Bluetooth-Incoming-Port',
+    baudrate=9600,
+)
+
+## Flask
+app = Flask(__name__)
+
+@app.route('/')
+def index():
+    return "Hello world!"
+
+class WebCrwl:
+    def __init__(self, URL):
+        self.url = URL
+
+    def naver_rt(self):
+        resp = requests.get(self.url)
+        soup = BeautifulSoup(resp.text, 'html.parser')
+        titles = soup.select('.ah_roll .ah_k')
+        return titles
+
+    def clien_bbs(self):
+        resp = requests.get(self.url)
+        soup = BeautifulSoup(resp.text, 'html.parser')
+        titles = soup.select('.list_subject .subject_fixed')
+        return titles
 
 
-@bot.message_handler(func=lambda message: True, content_types=['text'])
-def echo_message(message):
-    bot.reply_to(message, message.text)
+
+## telegram handler ###
+
+def handler(bot, update):
+    text = update.message.text
+    chat_id = update.message.chat_id
+
+    if ('실시간' or 'real') in text:
+        a = WebCrwl(url_1)
+        titles = a.naver_rt()
+        for title in titles:
+            bot.send_message(chat_id=chat_id, text=title.get_text())
+    elif '새소식' in text:
+        a = WebCrwl(url_2)
+        titles = a.clien_bbs()
+        for title in titles:
+            bot.send_message(chat_id=chat_id, text=title.get_text())
+    elif u'굴당' or 'car' in text:
+        a = WebCrwl(url_3)
+        titles = a.clien_bbs()
+        for title in titles:
+            bot.send_message(chat_id=chat_id, text=title.get_text())
+    ### IR control ###
+    elif 'tv on' in text:
+        ir_code = 'tv on'
+        ser.write(ir_code.encode())
+        bot.send_message(chat_id=chat_id, text=ir_code)
+    elif 'up' in text:
+        ir_code = 'channel up'
+        ser.write(ir_code.encode())
+        bot.send_message(chat_id=chat_id, text=ir_code)
+    elif 'down' in text:
+        ir_code = 'channel down'
+        ser.write(ir_code.encode())
+        bot.send_message(chat_id=chat_id, text=ir_code)
+
+    else:
+        bot.send_message(chat_id=chat_id, text='다시 입력해 주세요')
+'''
+def ir_handler(bot, update):
+
+    text = update.message.text
+    chat_id = update.message.chat_id
+    if 'tv on' or u'티비 켜' in text:
+        ir_code = '0x22221111'
+        ser.write(ir_code.encode())
+        bot.send_message(chat_id=chat_id, text=ir_code)
+'''
 
 
-@server.route('/' + TOKEN, methods=['POST'])
-def getMessage():
-    bot.process_new_updates([telebot.types.Update.de_json(request.stream.read().decode("utf-8"))])
-    return "!", 200
-
+echo_handler = MessageHandler(Filters.text, handler)
+dispatcher.add_handler(echo_handler)
 
 @server.route("/")
 def webhook():
