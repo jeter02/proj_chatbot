@@ -59,7 +59,7 @@ Pygments==2.3.1
 PyJWT==1.7.1
 pyparsing==2.3.1
 pyserial==3.4
-pyTelegramBotAPI==2.2.3
+pyTelegramBotAPI==3.6.6
 python-dateutil==2.7.5
 python-telegram-bot==11.1.0
 PyYAML==5.1.2
