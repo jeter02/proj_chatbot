@@ -66,16 +66,14 @@ def handler(bot, update):
         titles = a.clien_bbs()
         for title in titles:
             bot.send_message(chat_id=chat_id, text=title.get_text())
-    elif u'굴당' or 'car' in text:
+    elif (u'굴당' or 'car') in text:
         a = WebCrwl(url_3)
         titles = a.clien_bbs()
         for title in titles:
             bot.send_message(chat_id=chat_id, text=title.get_text())
     ### IR control ###
-    elif 'tv on' in text:
-        ir_code = 'tv on'
-        ser.write(ir_code.encode())
-        bot.send_message(chat_id=chat_id, text=ir_code)
+    elif '모해' in text:
+        bot.send_message(chat_id=chat_id, text='오빠생각')
     elif 'up' in text:
         ir_code = 'channel up'
         ser.write(ir_code.encode())
