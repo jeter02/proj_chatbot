@@ -6,7 +6,7 @@ from emoji import emojize
 import requests
 from bs4 import BeautifulSoup
 from flask import Flask
-import serial
+##import serial
 import os
 
 TOKEN ='719614337:AAGVXDHZtOK7YNUsokdtbgjqExNoTEMXxzA'
@@ -22,11 +22,11 @@ url_3 = 'https://www.clien.net/service/board/cm_car'
 
 ## set for serial comm.
 
-ser = serial.Serial(
+##ser = serial.Serial(
 ##    port='/dev/cu.usbmodem1411',
-    port='/dev/cu.Bluetooth-Incoming-Port',
-    baudrate=9600,
-)
+##    port='/dev/cu.Bluetooth-Incoming-Port',
+##    baudrate=9600,
+##)
 
 ## Flask
 app = Flask(__name__)
