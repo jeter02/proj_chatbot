@@ -6,7 +6,7 @@ import os
 TOKEN = "719614337:AAGVXDHZtOK7YNUsokdtbgjqExNoTEMXxzA"
 bot = telebot.TeleBot(TOKEN)
 
-server = Flask(__name__)
+app = Flask(__name__)
 
 def findat(msg):
     # from a list of texts, it finds the one with the '@' sign
