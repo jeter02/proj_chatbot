@@ -35,7 +35,7 @@ def at_converter(message):
         bot.reply_to(message, insta_link)
 
 
-@server.route("/")
+@app.route("/")
 def webhook():
     bot.remove_webhook()
     bot.set_webhook(url='https://telegram-chatbot-v00.herokuapp.com' + TOKEN)
@@ -43,4 +43,4 @@ def webhook():
 
 
 if __name__ == "__main__":
-    server.run(host="0.0.0.0", port=int(os.environ.get('PORT', 5000)))
+    app.run(host="0.0.0.0", port=int(os.environ.get('PORT', 5000)))
