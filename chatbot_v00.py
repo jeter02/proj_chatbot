@@ -77,7 +77,7 @@ def handler(bot, update):
     elif '일정' in text:
       ##  ir_code = 'channel up'
       ##  ser.write(ir_code.encode())
-      my_schedule = 'https://www.google.co.kr'
+        my_schedule = 'https://www.google.co.kr'
         bot.send_message(chat_id=chat_id, text=my_schedule)
     elif 'down' in text:
       ##  ir_code = 'channel down'
