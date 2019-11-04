@@ -74,14 +74,15 @@ def handler(bot, update):
     ### IR control ###
     elif '모해' in text:
         bot.send_message(chat_id=chat_id, text='오빠생각')
-    elif 'up' in text:
-        ir_code = 'channel up'
-        ser.write(ir_code.encode())
-        bot.send_message(chat_id=chat_id, text=ir_code)
+    elif '일정' in text:
+      ##  ir_code = 'channel up'
+      ##  ser.write(ir_code.encode())
+      my_schedule = 'https://www.google.co.kr'
+        bot.send_message(chat_id=chat_id, text=my_schedule)
     elif 'down' in text:
-        ir_code = 'channel down'
-        ser.write(ir_code.encode())
-        bot.send_message(chat_id=chat_id, text=ir_code)
+      ##  ir_code = 'channel down'
+      ##  ser.write(ir_code.encode())
+        bot.send_message(chat_id=chat_id, text='down')
 
     else:
         bot.send_message(chat_id=chat_id, text='다시 입력해 주세요')
