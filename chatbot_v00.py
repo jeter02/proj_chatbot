@@ -79,12 +79,13 @@ def handler(bot, update):
       ##  ser.write(ir_code.encode())
         my_schedule = 'https://www.google.co.kr'
         bot.send_message(chat_id=chat_id, text=my_schedule)
-    elif 'down' in text:
+    elif '사진' in text:
       ##  ir_code = 'channel down'
       ##  ser.write(ir_code.encode())
-        bot.send_message(chat_id=chat_id, text='down')
+        bot.send_message(chat_id=chat_id, text='사진을 전송합니다.')
+        bot.sendPhoto(chat_id=chat_id, photo='https://telegram.org/img/t_logo.png')
 
-    else:
+    else :
         bot.send_message(chat_id=chat_id, text='다시 입력해 주세요')
 '''
 def ir_handler(bot, update):
