@@ -83,7 +83,7 @@ def handler(bot, update):
       ##  ir_code = 'channel down'
       ##  ser.write(ir_code.encode())
         bot.send_message(chat_id=chat_id, text='사진을 전송합니다.')
-        bot.sendPhoto(chat_id=chat_id, photo='https://post-phinf.pstatic.net/MjAxODExMjlfMTQ2/MDAxNTQzNDE5MDA5OTU4.B151oQt7MXABzRw4elfBDuafHB5Zv_x5CZgBldNBOeYg.jJqc7f6hQE5iVDtlZ5Xtgq-ZZvwk0hd0F9HAI-_W-Iwg.JPEG/1.jpg?type=w1200')
+        bot.sendPhoto(chat_id=chat_id, photo='https://thumb.named.com/normal/resize/origin/file/photo/editor/1811/9f95a04042dd42948a7463ed2ff023c8_XV7DNV5NejAwRFIcJcfga.jpeg')
 
     else :
         bot.send_message(chat_id=chat_id, text='다시 입력해 주세요')
