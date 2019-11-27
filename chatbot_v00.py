@@ -73,7 +73,7 @@ def handler(bot, update):
             bot.send_message(chat_id=chat_id, text=title.get_text())
     ### IR control ###
     elif '모해' in text:
-        bot.send_message(chat_id=chat_id, text=emojize('오빠생각:heart_eyes:', use_aliases=True)
+        bot.send_message(chat_id=chat_id, text=emojize('오빠생각:heart_eyes:', use_aliases=True))
     elif '주식' in text:
       ##  ir_code = 'channel up'
       ##  ser.write(ir_code.encode())
