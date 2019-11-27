@@ -73,7 +73,7 @@ def handler(bot, update):
             bot.send_message(chat_id=chat_id, text=title.get_text())
     ### IR control ###
     elif '모해' in text:
-        bot.send_message(chat_id=chat_id, text='오빠생각')
+        bot.send_message(chat_id=chat_id, text=emojize('오빠생각:heart_eyes:', use_aliases=True)
     elif '주식' in text:
       ##  ir_code = 'channel up'
       ##  ser.write(ir_code.encode())
@@ -82,7 +82,7 @@ def handler(bot, update):
     elif '사진' in text:
       ##  ir_code = 'channel down'
       ##  ser.write(ir_code.encode())
-        bot.send_message(chat_id=chat_id, text='사진을 전송합니다.')
+        bot.send_message(chat_id=chat_id, text='부끄러워~.')
         bot.sendPhoto(chat_id=chat_id, photo='https://thumb.named.com/normal/resize/origin/file/photo/editor/1811/9f95a04042dd42948a7463ed2ff023c8_XV7DNV5NejAwRFIcJcfga.jpeg')
 
     else :
