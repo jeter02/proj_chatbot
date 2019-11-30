@@ -84,7 +84,11 @@ def handler(bot, update):
       ##  ser.write(ir_code.encode())
         bot.send_message(chat_id=chat_id, text='부끄러워~.')
         bot.sendPhoto(chat_id=chat_id, photo='https://thumb.named.com/normal/resize/origin/file/photo/editor/1811/9f95a04042dd42948a7463ed2ff023c8_XV7DNV5NejAwRFIcJcfga.jpeg')
-
+        bot.send_message(chat_id=chat_id, text='하나 더 보내 줄까?')
+        if ('응' or 'ㅇㅇ') in text:
+            bot.sendPhoto(chat_id=chat_id, photo='http://image.sportsseoul.com/2019/10/16/news/20191016102848_5.jpg')
+        else
+            bot.send_message(chat_id=chat_id, text='알았어~')
     else :
         bot.send_message(chat_id=chat_id, text='다시 입력해 주세요')
 '''
