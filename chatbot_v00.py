@@ -84,7 +84,7 @@ def handler(bot, update):
       ##  ser.write(ir_code.encode())
         bot.send_message(chat_id=chat_id, text='부끄러워~.')
         bot.sendPhoto(chat_id=chat_id, photo='https://thumb.named.com/normal/resize/origin/file/photo/editor/1811/9f95a04042dd42948a7463ed2ff023c8_XV7DNV5NejAwRFIcJcfga.jpeg')
-    elif ('divergence' or '다이버젼스' or '다이버' or '다이버전스') in text:
+    elif ('divergence' or u'다이버젼스' or u'다이버' or u'다이버전스') in text:
         bot.send_message(chat_id=chat_id, text='Divergence guide!!')
         bot.sendPhoto(chat_id=chat_id, photo='http://www.hozaebox.com/data/editor/1807/19d4be4d03d9a22daa42c10f9133be9f_1530486409_6612.png')
     else :
