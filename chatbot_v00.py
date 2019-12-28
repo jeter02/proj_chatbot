@@ -66,7 +66,7 @@ def handler(bot, update):
         titles = a.clien_bbs()
         for title in titles:
             bot.send_message(chat_id=chat_id, text=title.get_text())
-    elif (u'굴당') or ('car') in text:
+    elif (u'굴당' or 'car') in text:
         a = WebCrwl(url_3)
         titles = a.clien_bbs()
         for title in titles:
