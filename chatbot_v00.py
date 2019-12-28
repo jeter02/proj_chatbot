@@ -91,12 +91,6 @@ def handler(bot, update):
         bot.send_message(chat_id=chat_id, text="kelly's criterion!")
         bot.sendPhoto(chat_id=chat_id, photo='https://i1.wp.com/s3-us-west-2.amazonaws.com/finbox-blog/2018/03/Kelly-Criterion-Total-Capital-Allocated-Equation.png?w=640&ssl=1')
         bot.sendPhoto(chat_id=chat_id, photo='https://welovealgos.com/wp-content/uploads/2019/06/Kelly-criterion-formula.png')
-    elif '아리' in text:
-        bot.send_message(chat_id=chat_id, text="유즙 분비 예방 및 억제를 위해 카버락틴 복용")
-        bot.sendPhoto(chat_id=chat_id, photo='http://www.druginfo.co.kr/detailimg/%EC%B9%B4%EB%B2%84%EB%9D%BD%ED%8B%B4%EB%B6%80%EC%9E%91%EC%9A%A9%ED%91%9C2.JPG')
-        bot.send_message(chat_id=chat_id, text="클래라정 복용")
-        bot.sendPhoto(chat_id=chat_id, photo='http://www.druginfo.co.kr/detailimg/%ED%81%B4%EB%9E%98%EB%9D%BC%EC%9A%A9%EB%B2%95%EC%9A%A9%EB%9F%89%ED%91%9C1.JPG')
-        bot.send_message(chat_id=chat_id, text='https://junoyo.tistory.com/119')
     else:
         bot.send_message(chat_id=chat_id, text='다시 입력해 주세요')
 '''
