@@ -97,7 +97,7 @@ def handler(bot, update):
         bot.send_message(chat_id=chat_id, text="클래라정 복용")
         bot.sendPhoto(chat_id=chat_id, photo='http://www.druginfo.co.kr/detailimg/%ED%81%B4%EB%9E%98%EB%9D%BC%EC%9A%A9%EB%B2%95%EC%9A%A9%EB%9F%89%ED%91%9C1.JPG')
         bot.send_message(chat_id=chat_id, text='https://junoyo.tistory.com/119')
-    else :
+    else:
         bot.send_message(chat_id=chat_id, text='다시 입력해 주세요')
 '''
 def ir_handler(bot, update):
