@@ -66,7 +66,7 @@ def handler(bot, update):
         titles = a.clien_bbs()
         for title in titles:
             bot.send_message(chat_id=chat_id, text=title.get_text())
-    elif (u'굴당' or 'car') in text:
+    elif (u'굴당') or ('car') in text:
         a = WebCrwl(url_3)
         titles = a.clien_bbs()
         for title in titles:
@@ -82,8 +82,8 @@ def handler(bot, update):
     elif '사진' in text:
       ##  ir_code = 'channel down'
       ##  ser.write(ir_code.encode())
-        bot.send_message(chat_id=chat_id, text='부끄러워~.')
-        bot.sendPhoto(chat_id=chat_id, photo='https://thumb.named.com/normal/resize/origin/file/photo/editor/1811/9f95a04042dd42948a7463ed2ff023c8_XV7DNV5NejAwRFIcJcfga.jpeg')
+        bot.send_message(chat_id=chat_id, text='yes~')
+        ##bot.sendPhoto(chat_id=chat_id, photo='https://thumb.named.com/normal/resize/origin/file/photo/editor/1811/9f95a04042dd42948a7463ed2ff023c8_XV7DNV5NejAwRFIcJcfga.jpeg')
     elif (u'다이버젼스' or u'다이버' or u'다이버전스') in text:
         bot.send_message(chat_id=chat_id, text='Divergence guide!!')
         bot.sendPhoto(chat_id=chat_id, photo='http://www.hozaebox.com/data/editor/1807/19d4be4d03d9a22daa42c10f9133be9f_1530486409_6612.png')
@@ -91,6 +91,12 @@ def handler(bot, update):
         bot.send_message(chat_id=chat_id, text="kelly's criterion!")
         bot.sendPhoto(chat_id=chat_id, photo='https://i1.wp.com/s3-us-west-2.amazonaws.com/finbox-blog/2018/03/Kelly-Criterion-Total-Capital-Allocated-Equation.png?w=640&ssl=1')
         bot.sendPhoto(chat_id=chat_id, photo='https://welovealgos.com/wp-content/uploads/2019/06/Kelly-criterion-formula.png')
+    elif '아리' in text:
+        bot.send_message(chat_id=chat_id, text="유즙 분비 예방 및 억제를 위해 카버락틴 복용")
+        bot.sendPhoto(chat_id=chat_id, photo='http://www.druginfo.co.kr/detailimg/%EC%B9%B4%EB%B2%84%EB%9D%BD%ED%8B%B4%EB%B6%80%EC%9E%91%EC%9A%A9%ED%91%9C2.JPG')
+        bot.send_message(chat_id=chat_id, text="클래라정 복용")
+        bot.sendPhoto(chat_id=chat_id, photo='http://www.druginfo.co.kr/detailimg/%ED%81%B4%EB%9E%98%EB%9D%BC%EC%9A%A9%EB%B2%95%EC%9A%A9%EB%9F%89%ED%91%9C1.JPG')
+        bot.sendPhoto(chat_id=chat_id, photo='https://junoyo.tistory.com/119')
     else :
         bot.send_message(chat_id=chat_id, text='다시 입력해 주세요')
 '''
