@@ -96,7 +96,7 @@ def handler(bot, update):
         bot.sendPhoto(chat_id=chat_id, photo='http://www.druginfo.co.kr/detailimg/%ED%81%B4%EB%9E%98%EB%9D%BC%EC%9A%A9%EB%B2%95%EC%9A%A9%EB%9F%89%ED%91%9C1.JPG')
         bot.sendPhoto(chat_id=chat_id, photo='http://clinicalpharmacist.co.kr/wordpress/wp-content/uploads/%ED%81%B4%EB%9E%98%EB%9D%BC.jpg')
         bot.send_message(chat_id=chat_id, text="카버락틴 정보 입니다.")
-        bot.sendPhoto(chat_id=chat_id, photo='http://www.druginfo.co.kr/cp/msdNew/detail/product_detail_cp.aspx?cppid=209275&cpingPid=10400&cpingPid_List=10400')
+        bot.send_message(chat_id=chat_id, text='http://www.druginfo.co.kr/cp/msdNew/detail/product_detail_cp.aspx?cppid=209275&cpingPid=10400&cpingPid_List=10400')
     else:
         bot.send_message(chat_id=chat_id, text='다시 입력해 주세요')
 '''
