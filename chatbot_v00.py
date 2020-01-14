@@ -66,7 +66,7 @@ def handler(bot, update):
         titles = a.clien_bbs()
         for title in titles:
             bot.send_message(chat_id=chat_id, text=title.get_text())
-    elif (u'굴당' or 'car') in text:
+    elif u'굴당' in text:
         a = WebCrwl(url_3)
         titles = a.clien_bbs()
         for title in titles:
@@ -84,10 +84,10 @@ def handler(bot, update):
       ##  ser.write(ir_code.encode())
         bot.send_message(chat_id=chat_id, text='yes~')
         ##bot.sendPhoto(chat_id=chat_id, photo='https://thumb.named.com/normal/resize/origin/file/photo/editor/1811/9f95a04042dd42948a7463ed2ff023c8_XV7DNV5NejAwRFIcJcfga.jpeg')
-    elif (u'다이버젼스' or u'다이버' or u'다이버전스') in text:
+    elif (u'다이버젼스' == text) or (u'다이버' == text):
         bot.send_message(chat_id=chat_id, text='Divergence guide!!')
         bot.sendPhoto(chat_id=chat_id, photo='http://www.hozaebox.com/data/editor/1807/19d4be4d03d9a22daa42c10f9133be9f_1530486409_6612.png')
-    elif ('kelly' or 'bat' ) in text:
+    elif ('kelly' in text) or (u'켈리' in text):
         bot.send_message(chat_id=chat_id, text="kelly's criterion!")
         bot.sendPhoto(chat_id=chat_id, photo='https://i1.wp.com/s3-us-west-2.amazonaws.com/finbox-blog/2018/03/Kelly-Criterion-Total-Capital-Allocated-Equation.png?w=640&ssl=1')
         bot.sendPhoto(chat_id=chat_id, photo='https://welovealgos.com/wp-content/uploads/2019/06/Kelly-criterion-formula.png')
