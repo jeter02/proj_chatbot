@@ -56,7 +56,7 @@ def handler(bot, update):
     text = update.message.text
     chat_id = update.message.chat_id
 
-    if ('실시간' or 'real') in text:
+    if ('실시간' in text) or ('real' in text):
         a = WebCrwl(url_1)
         titles = a.naver_rt()
         for title in titles:
