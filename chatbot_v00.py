@@ -74,7 +74,7 @@ def handler(bot, update):
     ### IR control ###
     elif '모해' in text:
         bot.send_message(chat_id=chat_id, text=emojize('오빠생각:heart_eyes:', use_aliases=True))
-    elif '주식' in text:
+    elif '야후' in text:
       ##  ir_code = 'channel up'
       ##  ser.write(ir_code.encode())
         my_schedule = 'https://finance.yahoo.com/'
