@@ -86,7 +86,7 @@ def handler(bot, update):
         ##bot.sendPhoto(chat_id=chat_id, photo='https://thumb.named.com/normal/resize/origin/file/photo/editor/1811/9f95a04042dd42948a7463ed2ff023c8_XV7DNV5NejAwRFIcJcfga.jpeg')
     elif (u'다이버젼스' == text) or (u'다이버' == text):
         bot.send_message(chat_id=chat_id, text='Divergence guide!!')
-        bot.sendPhoto(chat_id=chat_id, photo='http://www.hozaebox.com/data/editor/1807/19d4be4d03d9a22daa42c10f9133be9f_1530486409_6612.png')
+        bot.sendPhoto(chat_id=chat_id, photo='https://blogfiles.pstatic.net/MjAyMDAyMjRfMjk0/MDAxNTgyNDcxNDcxMjk1.olNF7r4lUQ3foXgUXbKjfQ4KRb0WLlg1RKAxsL9rvi4g.kqS8gfGS_2Bzm-F2_HVR0U8l-Mq8TUXDUdrxOMpp6tgg.JPEG.g3_vai/photo_2020-02-24_00.21.18.jpeg')
     elif ('kelly' in text) or (u'켈리' in text):
         bot.send_message(chat_id=chat_id, text="kelly's criterion!")
         bot.sendPhoto(chat_id=chat_id, photo='https://i1.wp.com/s3-us-west-2.amazonaws.com/finbox-blog/2018/03/Kelly-Criterion-Total-Capital-Allocated-Equation.png?w=640&ssl=1')
