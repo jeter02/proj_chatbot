@@ -62,7 +62,7 @@ pyserial==3.4
 pyTelegramBotAPI==3.6.6
 python-dateutil==2.7.5
 python-telegram-bot==11.1.0
-PyYAML==5.1.2
+PyYAML==5.4
 pyzmq==17.1.2
 qtconsole==4.4.3
 requests==2.7.0
